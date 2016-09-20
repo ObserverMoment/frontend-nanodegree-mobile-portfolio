@@ -14,12 +14,13 @@
   10. Within main.js change pizzaImage.src = compressed image
   11. Function updatePositions() refactored so that scrollTop calculation is outside the loop
   12. DetermineDx() function removed as not sensible to calculate resizing that way. Just used input size to determine each pizza container width.
+  13. Removed duplicate Google tracking tag from head of index.html
 
 ## Instructions to View and Grade the portfolio
 
   1. Go to [The GitPages hosted site here](https://observermoment.github.io/frontend-nanodegree-mobile-portfolio/).
   2. Open PageSpeedTools Insights.
-  3. Text it!
+  3. Test it etc!
 
 ## Tools used during Project
 
