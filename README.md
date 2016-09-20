@@ -15,6 +15,9 @@
   11. Function updatePositions() refactored so that scrollTop calculation is outside the loop
   12. DetermineDx() function removed as not sensible to calculate resizing that way. Just used input size to determine each pizza container width.
   13. Removed duplicate Google tracking tag from head of index.html
+  14. Added <meta name=viewport content="width=device-width, initial-scale=1"> to pizza.html
+  15. Further compressed images using imageOptim lossy setting
+  16. Created a thumbnail version of pizzeria.jpg to serve to index.html
 
 ## Instructions to View and Grade the portfolio
 
