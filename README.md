@@ -18,6 +18,7 @@
   14. Added <meta name=viewport content="width=device-width, initial-scale=1"> to pizza.html
   15. Further compressed images using imageOptim lossy setting
   16. Created a thumbnail version of pizzeria.jpg to serve to index.html
+  17. Inlined some CSS to get mobile PageSpeed score over 90.
 
 ## Instructions to View and Grade the portfolio
 
