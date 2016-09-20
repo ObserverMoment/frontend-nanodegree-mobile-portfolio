@@ -53,4 +53,4 @@ gulp.task('watch', function(){
   gulp.watch('views/css/*.css', ['minify-css2']);
 })
 
-gulp.task('default', ['imagemin1', 'imagemin2', 'scripts1', 'scripts2', 'minify-css1', 'minify-css2', 'watch']);
+gulp.task('default', ['scripts1', 'scripts2', 'minify-css1', 'minify-css2', 'watch']);
