@@ -451,11 +451,11 @@ var resizePizzas = function(size) {
   function changePizzaSizes(size) {
 
     // No need to calculate new width every time - as all elements will have the same width
-    var allPizzaContainers = document.querySelectorAll(".randomPizzaContainer");
+    var allPizzaContainers = document.getElementsByClassName("randomPizzaContainer");
     var newwidth = sizeSwitcher(size);
     // var newwidth = (allPizzaContainers[0].offsetWidth + dx) + 'px'; - Removed - RB
     // console.log(newwidth);
-    
+
     for (var i = 0; i < allPizzaContainers.length; i++) {
       allPizzaContainers[i].style.width = newwidth;
     }
@@ -472,9 +472,9 @@ var resizePizzas = function(size) {
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
-// This for-loop actually creates and appends all of the pizzas when the page loads
+// This for-loop actually creates and appends all of the pizzas when the page loads - moved
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -506,10 +506,17 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
   var phase = (document.body.scrollTop / 1250);
+  var phases = [];
+  for (var i = 0; i < 5; i++) {
+    phases.push(Math.sin(phase + (i % 5)));
+  }
+  // console.log(phases);
+
   for (var i = 0; i < items.length; i++) {
-    var itemPhase = Math.sin(phase + (i % 5));
+    var itemPhase = phases[i % 5];
+    // console.log(itemPhase);
     items[i].style.left = items[i].basicLeft + 100 * itemPhase + 'px';
   }
 
@@ -530,7 +537,18 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  // Here I'll calculate the number of pizzas needed to fill and the screen (up to a maximum of 200)
+  var movingPizzaHeight = 256;
+  var movingPizzaWidth = 256;
+  var windowHeight = window.innerHeight;
+  var windowWidth = window.innerWidth;
+  var horizontalPizzas = Math.floor(windowWidth / 73.333);
+  // console.log(horizontalPizzas);
+  var verticalPizzas = Math.floor(windowHeight / 100);
+  // console.log(verticalPizzas);
+  var totalPizzas = Math.min(200, verticalPizzas * horizontalPizzas);
+  // console.log(totalPizzas);
+  for (var i = 0; i < totalPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "dist/images/pizza.png";

@@ -19,6 +19,10 @@
   15. Further compressed images using imageOptim lossy setting
   16. Created a thumbnail version of pizzeria.jpg to serve to index.html
   17. Inlined some CSS to get mobile PageSpeed score over 90.
+  18. Added remaining CSS to <style> tags in header and removed call to style.css
+  19. Used getElementsbyClassName() instead of querySelectorAll()
+  20. Line 475. Moved the assignment of getElementById to outside of the loop to avoid repeated unnecessary calls
+  21. Dynamically calculate how many .mover pizzas are needed to fill the screen to reduce load on mobile devices
 
 ## Instructions to View and Grade the portfolio
 
